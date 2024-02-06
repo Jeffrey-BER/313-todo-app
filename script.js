@@ -25,8 +25,6 @@ const state = {
   filter: [{ filterState: "all" }],
 };
 
-render();
-
 // Render function
 function render() {
   removeDuplicateTasks(); // removing duplicated tasks
@@ -76,8 +74,6 @@ function render() {
 
 // ADD Todo Function (to add a todo to the state)
 function addTodo(event) {
-  console.log("addTodo function activated");
-
   event.preventDefault(); // Prevent form submission
   const newTodoDescription = todoInput.value.trim(); // Get the value from input field and trim kills spaces at the end
 
@@ -101,14 +97,11 @@ function addTodo(event) {
 // Function to remove tasks from the state where done value is true
 function removeTasks() {
   // Loop through the tasks array in reverse order to avoid index shifting
-  console.log("removeTask function is called");
-
   for (let i = state.tasks.length - 1; i >= 0; i--) {
     if (state.tasks[i].done) {
       state.tasks.splice(i, 1); // Remove task at index i
     }
   }
-
   render();
 }
 
